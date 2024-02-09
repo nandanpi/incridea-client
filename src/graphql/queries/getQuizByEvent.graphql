@@ -1,0 +1,27 @@
+query GetQuizByEvent($eventId: Int!) {
+  getQuizByEvent(eventId: $eventId) {
+    ... on QueryGetQuizByEventSuccess {
+      __typename
+      data {
+        name
+        questions {
+          id
+          image
+          negativePoint
+          point
+          question
+          questionType
+          options {
+            id
+            isAnswer
+            value
+          }
+        }
+      }
+    }
+    ... on Error {
+      __typename
+      message
+    }
+  }
+}
